@@ -1,14 +1,45 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-toolbar>
+        <ion-title>
+            汎用短縮URLジェネレータ
+        </ion-title>
+
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+    <ion-list>
+
+        <ion-item>
+            <ion-label color="primary" stacked>短縮したいURLを入力してください。</ion-label>
+            <ion-input type="text" placeholder="短くしたいURL"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" stacked>短縮したURLは以下の通りです。</ion-label>
+            <ion-input type="text" placeholder="短縮URL"></ion-input>
+
+        </ion-item>
+        <div text-center padding>
+
+            <button ion-button full color="primary" [navPush]="formPage">クリップボードにコピー</button>
+        </div>
+
+    </ion-list>
+    <!--<button id="copy" class="btn btn-primary" onclick="clipboadCopy('shorturl')">クリップボードにコピー</button>-->
+
+
+    <br />
+
+ 
+        <div class="container">
+            <h3>使い方</h3>
+            <ul>
+                <li>短縮したいURLを入力すると、短縮したURLが自動生成されます。</li>
+                <li>短縮URLはサーバーに保存されたりはしません。</li>
+            </ul>
+        </div>
+    
+
 </ion-content>

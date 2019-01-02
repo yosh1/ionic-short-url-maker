@@ -1,18 +1,4 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { url } from 'inspector';
-import {main} from '../../../src/js/main.js';
-import {inflate} from '../../../src/js/inflate.js'
-import {deflate} from '../../../src/js/deflate.js'
-
-@Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
-})
-export class HomePage {
-
-  constructor(public navCtrl: NavController) {
-    $(function(){
+$(function(){
 	var url = location.href;
 	var query = location.search;
 	if(query.slice(1) != ""){
@@ -26,9 +12,9 @@ export class HomePage {
 
 function clipboadCopy(string){
 	var urltext = document.getElementById(string);
-    window.getSelection().selectAllChildren(urltext);
-    document.execCommand("Copy");
-    alert("コピーしました");
+	urltext.select();
+	document.execCommand("copy");
+	alert("コピーしました");
 }
 
 // 圧縮関数
@@ -45,8 +31,4 @@ function inflate(val) {
     val = RawDeflate.inflate(val);
     val = decodeURIComponent(val);
     return val;
-}
-
-  }
-
 }
